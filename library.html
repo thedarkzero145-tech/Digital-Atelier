@@ -279,8 +279,8 @@
                             <span class="material-symbols-outlined text-[14px]">check</span>
                         </div>
                         <div class="h-44 w-full bg-gray-100 relative overflow-hidden">
-                            <img src="/midnight_twill_fabric_1772210697571.png"
-                                class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-700"
+                            <img src="public/midnight_twill_fabric_1772210697571.png"
+                                class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-300"
                                 alt="Midnight Twill" />
                         </div>
                         <div class="p-4 flex flex-col flex-1">
@@ -306,8 +306,8 @@
                     <div
                         class="bg-white rounded-[16px] overflow-hidden border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-shadow cursor-pointer group flex flex-col">
                         <div class="h-44 w-full bg-gray-100 relative overflow-hidden">
-                            <img src="/sandstone_linen_fabric_1772210711628.png"
-                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            <img src="public/sandstone_linen_fabric_1772210711628.png"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                 alt="Sandstone Linen" />
                         </div>
                         <div class="p-4 flex flex-col flex-1">
@@ -333,8 +333,8 @@
                     <div
                         class="bg-white rounded-[16px] overflow-hidden border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-shadow cursor-pointer group flex flex-col">
                         <div class="h-44 w-full bg-gray-100 relative overflow-hidden">
-                            <img src="/imperial_raw_silk_fabric_1772210728746.png"
-                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            <img src="public/imperial_raw_silk_fabric_1772210728746.png"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                 alt="Imperial Raw Silk" />
                         </div>
                         <div class="p-4 flex flex-col flex-1">
@@ -360,8 +360,8 @@
                     <div
                         class="bg-white rounded-[16px] overflow-hidden border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-shadow cursor-pointer group flex flex-col">
                         <div class="h-44 w-full bg-gray-100 relative overflow-hidden">
-                            <img src="/charcoal_flannel_shirt_1772210744750.png"
-                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 sepia-[0.3]"
+                            <img src="public/charcoal_flannel_shirt_1772210744750.png"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 sepia-[0.3]"
                                 alt="Charcoal Flannel" />
                         </div>
                         <div class="p-4 flex flex-col flex-1">
@@ -387,8 +387,8 @@
                     <div
                         class="bg-white rounded-[16px] overflow-hidden border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-shadow cursor-pointer group flex flex-col">
                         <div class="h-44 w-full bg-gray-100 relative overflow-hidden">
-                            <img src="/royal_prince_of_wales_1772210763947.png"
-                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            <img src="public/royal_prince_of_wales_1772210763947.png"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                 alt="Royal Prince of Wales" />
                         </div>
                         <div class="p-4 flex flex-col flex-1">
@@ -413,8 +413,8 @@
                     <div
                         class="bg-white rounded-[16px] overflow-hidden border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-shadow cursor-pointer group flex flex-col">
                         <div class="h-44 w-full bg-gray-100 relative overflow-hidden">
-                            <img src="/andes_gold_fabric_1772210781310.png"
-                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 mix-blend-multiply opacity-90"
+                            <img src="public/andes_gold_fabric_1772210781310.png"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 mix-blend-multiply opacity-90"
                                 alt="Andes Gold" />
                         </div>
                         <div class="p-4 flex flex-col flex-1">
@@ -560,6 +560,59 @@
 
     </div>
 
+    <script>
+        // Make the fabric library interactive and work fast
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.grid > div');
+            const rightSidebar = document.querySelector('aside:last-child');
+
+            // Dynamic Specification Data Map
+            const libraryData = {
+                'Midnight Twill': { weight: '260', weave: '2/2 Twill', micron: '17.5μ', ref: 'LP-AUS-8492' },
+                'Sandstone Linen': { weight: '320', weave: 'Plain', micron: 'N/A', ref: 'SB-NAT-1102' },
+                'Imperial Raw Silk': { weight: '240', weave: 'Slub', micron: 'N/A', ref: 'DM-SLK-4421' },
+                'Charcoal Flannel': { weight: '380', weave: 'Woolen', micron: '18.5μ', ref: 'FB-FLN-9912' },
+                'Royal Prince of Wales': { weight: '280', weave: 'Worsted', micron: '16.5μ', ref: 'SC-ROY-8822' },
+                'Andes Gold': { weight: '290', weave: 'Vicuña', micron: '12.5μ', ref: 'LP-VIC-0001' }
+            };
+
+            cards.forEach(card => {
+                // Instantly wire click interactions
+                card.addEventListener('click', () => {
+                    // Update selection checkmark logic
+                    cards.forEach(c => {
+                        const checkmark = c.querySelector('.bg-primary.rounded-full');
+                        if (checkmark) checkmark.remove();
+                        c.classList.remove('border-primary', 'shadow-[0_4px_20px_rgba(236,182,19,0.15)]');
+                        c.classList.add('border-gray-200');
+                    });
+
+                    // Add checkmark to clicked card
+                    card.classList.remove('border-gray-200');
+                    card.classList.add('border-primary', 'shadow-[0_4px_20px_rgba(236,182,19,0.15)]');
+                    card.insertAdjacentHTML('afterbegin', '<div class="absolute top-3 right-3 w-6 h-6 bg-primary rounded-full flex items-center justify-center z-10 text-white shadow-sm transition-all duration-300 transform scale-0 animate-[pop_0.2s_ease-out_forwards]"><span class="material-symbols-outlined text-[14px]">check</span></div>');
+                    setTimeout(() => card.querySelector('.bg-primary.rounded-full').style.transform = 'scale(1)', 10); // Trigger animation
+
+                    // Update Right Sidebar 'Specification' dynamically
+                    const title = card.querySelector('h3').innerText.replace(/\n/g, ' ');
+                    const data = libraryData[title];
+                    if (data) {
+                        rightSidebar.querySelector('h2').innerText = title;
+                        rightSidebar.querySelector('p').innerText = 'Ref: ' + data.ref;
+                        const stats = rightSidebar.querySelectorAll('.grid > div');
+                        stats[0].querySelector('.text-lg').innerHTML = data.weight + ' <span class="text-xs text-neutral-400 font-normal">g</span>';
+                        stats[2].querySelector('.text-sm').innerText = data.weave;
+                        stats[3].querySelector('.text-sm').innerText = data.micron;
+
+                        // Bounce effect on Right Sidebar to make it feel fast and responsive
+                        rightSidebar.style.transform = 'translateY(5px)';
+                        rightSidebar.style.transition = 'transform 0.2s ease-out';
+                        setTimeout(() => rightSidebar.style.transform = 'translateY(0)', 200);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
